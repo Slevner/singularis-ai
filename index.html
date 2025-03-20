@@ -48,6 +48,17 @@
             top: 10px;
             right: 20px;
         }
+        .features, .testimonials {
+            margin-top: 50px;
+        }
+        .feature-item, .testimonial-item {
+            background-color: #222;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 30%;
+        }
     </style>
 </head>
 <body>
@@ -55,21 +66,25 @@
         <select id="language" onchange="changeLanguage()">
             <option value="ru">Русский</option>
             <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="de">Deutsch</option>
-            <option value="fr">Français</option>
-            <option value="zh">中文</option>
-            <option value="ar">العربية</option>
-            <option value="pt">Português</option>
-            <option value="ja">日本語</option>
-            <option value="hi">हिन्दी</option>
         </select>
     </div>
     <div class="container">
         <h1 id="title">Singularis - будущее управления бизнесом</h1>
         <p id="description">Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.</p>
+        <button class="button">Попробовать</button>
     </div>
-
+    <div class="features">
+        <h2>Почему Singularis?</h2>
+        <div class="feature-item">Анализ данных в реальном времени</div>
+        <div class="feature-item">Прогнозирование трендов</div>
+        <div class="feature-item">Автоматизация бизнес-процессов</div>
+    </div>
+    <div class="testimonials">
+        <h2>Отзывы пользователей</h2>
+        <div class="testimonial-item">"Singularis помог увеличить прибыль на 30%!"</div>
+        <div class="testimonial-item">"Умное управление бизнесом – теперь реальность."</div>
+        <div class="testimonial-item">"Инструмент, который меняет правила игры."</div>
+    </div>
     <script>
         function changeLanguage() {
             const lang = document.getElementById("language").value;
@@ -81,38 +96,6 @@
                 "en": {
                     "title": "Singularis - the future of business management",
                     "description": "Artificial intelligence that analyzes, predicts, and manages your company's strategy."
-                },
-                "es": {
-                    "title": "Singularis - el futuro de la gestión empresarial",
-                    "description": "Inteligencia artificial que analiza, predice y gestiona la estrategia de su empresa."
-                },
-                "de": {
-                    "title": "Singularis - die Zukunft des Geschäftsmanagements",
-                    "description": "Künstliche Intelligenz, die Ihre Unternehmensstrategie analysiert, vorhersagt und verwaltet."
-                },
-                "fr": {
-                    "title": "Singularis - l'avenir de la gestion des affaires",
-                    "description": "L'intelligence artificielle qui analyse, prédit et gère la stratégie de votre entreprise."
-                },
-                "zh": {
-                    "title": "Singularis - 商业管理的未来",
-                    "description": "分析、预测和管理您的公司战略的人工智能。"
-                },
-                "ar": {
-                    "title": "Singularis - مستقبل إدارة الأعمال",
-                    "description": "الذكاء الاصطناعي الذي يحلل ويتنبأ ويدير استراتيجية شركتك."
-                },
-                "pt": {
-                    "title": "Singularis - o futuro da gestão empresarial",
-                    "description": "Inteligência artificial que analisa, prevê e gerencia a estratégia da sua empresa."
-                },
-                "ja": {
-                    "title": "Singularis - ビジネスマネジメントの未来",
-                    "description": "企業の戦略を分析、予測、管理する人工知能。"
-                },
-                "hi": {
-                    "title": "Singularis - व्यवसाय प्रबंधन का भविष्य",
-                    "description": "कृत्रिम बुद्धिमत्ता जो आपकी कंपनी की रणनीति का विश्लेषण, पूर्वानुमान और प्रबंधन करती है।"
                 }
             };
             document.getElementById("title").textContent = translations[lang].title;
