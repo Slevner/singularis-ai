@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в Singularis</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 230, 172, 0.2);
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+        }
+        .button {
+            background-color: #00e6ac;
+            color: #121212;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #00b388;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Вход в Singularis</h1>
+        <input type="text" id="username" placeholder="Логин"><br>
+        <input type="password" id="password" placeholder="Пароль"><br>
+        <button class="button" onclick="login()">Войти</button>
+    </div>
+    
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username && password) {
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Введите логин и пароль!");
+            }
+        }
+    </script>
+</body>
+</html>
