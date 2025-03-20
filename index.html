@@ -55,12 +55,14 @@
             justify-content: center;
             gap: 20px;
             margin-top: 50px;
+            flex-wrap: wrap;
         }
         .dashboard-item {
             background-color: #1e1e1e;
             padding: 20px;
             border-radius: 12px;
-            width: 30%;
+            width: 90%;
+            max-width: 300px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 230, 172, 0.2);
         }
@@ -76,8 +78,11 @@
             padding: 18px;
             margin: 10px;
             border-radius: 10px;
-            display: inline-block;
-            width: 30%;
+            display: block;
+            width: 90%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
         }
     </style>
@@ -92,33 +97,33 @@
     <div class="container">
         <h1 id="title">Singularis - будущее управления бизнесом</h1>
         <p id="description">Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.</p>
-        <button class="button" id="try-button">Попробовать</button>
+        <button class="button">Попробовать</button>
     </div>
     <div class="dashboard">
         <div class="dashboard-item">
-            <h3 id="profit-title">Рост прибыли</h3>
+            <h3>Рост прибыли</h3>
             <p id="profit-growth">+30%</p>
         </div>
         <div class="dashboard-item">
-            <h3 id="cost-title">Снижение затрат</h3>
+            <h3>Снижение затрат</h3>
             <p id="cost-reduction">-25%</p>
         </div>
         <div class="dashboard-item">
-            <h3 id="process-title">Оптимизация процессов</h3>
+            <h3>Оптимизация процессов</h3>
             <p id="process-optimization">+40%</p>
         </div>
     </div>
     <div class="features">
-        <h2 id="features-title">Почему Singularis?</h2>
-        <div class="feature-item" id="feature1">Анализ данных в реальном времени</div>
-        <div class="feature-item" id="feature2">Прогнозирование трендов</div>
-        <div class="feature-item" id="feature3">Автоматизация бизнес-процессов</div>
+        <h2>Почему Singularis?</h2>
+        <div class="feature-item">Анализ данных в реальном времени</div>
+        <div class="feature-item">Прогнозирование трендов</div>
+        <div class="feature-item">Автоматизация бизнес-процессов</div>
     </div>
     <div class="testimonials">
-        <h2 id="testimonials-title">Отзывы пользователей</h2>
-        <div class="testimonial-item" id="testimonial1">"Singularis помог увеличить прибыль на 30%!"</div>
-        <div class="testimonial-item" id="testimonial2">"Умное управление бизнесом – теперь реальность."</div>
-        <div class="testimonial-item" id="testimonial3">"Инструмент, который меняет правила игры."</div>
+        <h2>Отзывы пользователей</h2>
+        <div class="testimonial-item">"Singularis помог увеличить прибыль на 30%!"</div>
+        <div class="testimonial-item">"Умное управление бизнесом – теперь реальность."</div>
+        <div class="testimonial-item">"Инструмент, который меняет правила игры."</div>
     </div>
     <script>
         function changeLanguage() {
@@ -126,40 +131,15 @@
             const translations = {
                 "ru": {
                     "title": "Singularis - будущее управления бизнесом",
-                    "description": "Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.",
-                    "try-button": "Попробовать",
-                    "profit-title": "Рост прибыли",
-                    "cost-title": "Снижение затрат",
-                    "process-title": "Оптимизация процессов",
-                    "features-title": "Почему Singularis?",
-                    "feature1": "Анализ данных в реальном времени",
-                    "feature2": "Прогнозирование трендов",
-                    "feature3": "Автоматизация бизнес-процессов",
-                    "testimonials-title": "Отзывы пользователей",
-                    "testimonial1": "\"Singularis помог увеличить прибыль на 30%!\"",
-                    "testimonial2": "\"Умное управление бизнесом – теперь реальность.\"",
-                    "testimonial3": "\"Инструмент, который меняет правила игры.\""
+                    "description": "Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании."
                 },
                 "en": {
                     "title": "Singularis - the future of business management",
-                    "description": "Artificial intelligence that analyzes, predicts, and manages your company's strategy.",
-                    "try-button": "Try Now",
-                    "profit-title": "Profit Growth",
-                    "cost-title": "Cost Reduction",
-                    "process-title": "Process Optimization",
-                    "features-title": "Why Singularis?",
-                    "feature1": "Real-time Data Analysis",
-                    "feature2": "Trend Forecasting",
-                    "feature3": "Business Process Automation",
-                    "testimonials-title": "User Reviews",
-                    "testimonial1": "\"Singularis helped increase profits by 30%!\"",
-                    "testimonial2": "\"Smart business management is now a reality.\"",
-                    "testimonial3": "\"A game-changing tool.\""
+                    "description": "Artificial intelligence that analyzes, predicts, and manages your company's strategy."
                 }
             };
-            Object.keys(translations[lang]).forEach(id => {
-                document.getElementById(id).textContent = translations[lang][id];
-            });
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("description").textContent = translations[lang].description;
         }
     </script>
 </body>
