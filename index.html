@@ -48,7 +48,7 @@
             top: 10px;
             right: 20px;
         }
-        .features, .testimonials {
+        .features, .testimonials, .dashboard {
             margin-top: 50px;
         }
         .feature-item, .testimonial-item {
@@ -58,6 +58,21 @@
             border-radius: 10px;
             display: inline-block;
             width: 30%;
+        }
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .dashboard-item {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+        }
+        .dashboard-item h3 {
+            color: #00ffcc;
         }
     </style>
 </head>
@@ -72,6 +87,20 @@
         <h1 id="title">Singularis - будущее управления бизнесом</h1>
         <p id="description">Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.</p>
         <button class="button">Попробовать</button>
+    </div>
+    <div class="dashboard">
+        <div class="dashboard-item">
+            <h3>Рост прибыли</h3>
+            <p id="profit-growth">+30%</p>
+        </div>
+        <div class="dashboard-item">
+            <h3>Снижение затрат</h3>
+            <p id="cost-reduction">-25%</p>
+        </div>
+        <div class="dashboard-item">
+            <h3>Оптимизация процессов</h3>
+            <p id="process-optimization">+40%</p>
+        </div>
     </div>
     <div class="features">
         <h2>Почему Singularis?</h2>
