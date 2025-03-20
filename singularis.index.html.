@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularis - ИИ для бизнеса</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+        }
+        h1 {
+            font-size: 48px;
+            text-transform: uppercase;
+            color: #00ffcc;
+        }
+        p {
+            font-size: 20px;
+            margin: 20px 0;
+            color: #cccccc;
+        }
+        .button {
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .button:hover {
+            background-color: #00cc99;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Singularis - будущее управления бизнесом</h1>
+        <p>Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.</p>
+        <button class="button" onclick="startVoiceRecognition()">Голосовое управление</button>
+        <button class="button" onclick="fetchDataFromAPI()">Получить данные API</button>
+        <button class="button" onclick="fetchCRMData()">Интеграция с CRM</button>
+        <button class="button" onclick="processPayment()">Оплата через API</button>
+        <button class="button" onclick="fetchTransactionAnalytics()">Аналитика транзакций</button>
+        <button class="button" onclick="generateReports()">Создать отчет</button>
+        <button class="button" onclick="predictRevenue()">Прогнозирование доходов</button>
+        <button class="button" onclick="analyzeInvestments()">Инвестиционная аналитика</button>
+        <button class="button" onclick="manageAssets()">Управление активами</button>
+    </div>
+
+    <script>
+        function startVoiceRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'ru-RU';
+            recognition.start();
+            recognition.onresult = function(event) {
+                const command = event.results[0][0].transcript;
+                alert("Распознанная команда: " + command);
+            };
+        }
+
+        async function fetchDataFromAPI() {
+            try {
+                let response = await fetch('https://api.example.com/data');
+                let data = await response.json();
+                console.log('Полученные данные:', data);
+                alert('Данные успешно загружены!');
+            } catch (error) {
+                console.error('Ошибка загрузки данных:', error);
+                alert('Ошибка при загрузке данных API.');
+            }
+        }
+        
+        async function fetchCRMData() {
+            try {
+                let response = await fetch('https://crm.example.com/api/clients');
+                let data = await response.json();
+                console.log('Данные из CRM:', data);
+                alert('Данные CRM загружены!');
+            } catch (error) {
+                console.error('Ошибка загрузки CRM данных:', error);
+                alert('Ошибка при загрузке данных CRM.');
+            }
+        }
+        
+        async function processPayment() {
+            try {
+                let response = await fetch('https://payment.example.com/api/pay', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount: 100, currency: 'RUB' })
+                });
+                let data = await response.json();
+                console.log('Оплата обработана:', data);
+                alert('Оплата прошла успешно!');
+            } catch (error) {
+                console.error('Ошибка оплаты:', error);
+                alert('Ошибка при обработке платежа.');
+            }
+        }
+        
+        async function fetchTransactionAnalytics() {
+            try {
+                let response = await fetch('https://analytics.example.com/api/transactions');
+                let data = await response.json();
+                console.log('Аналитика транзакций:', data);
+                alert('Аналитика транзакций загружена!');
+            } catch (error) {
+                console.error('Ошибка загрузки аналитики:', error);
+                alert('Ошибка при загрузке аналитики транзакций.');
+            }
+        }
+        
+        async function generateReports() {
+            try {
+                let response = await fetch('https://reports.example.com/api/generate');
+                let data = await response.json();
+                console.log('Отчет создан:', data);
+                alert('Отчет успешно создан!');
+            } catch (error) {
+                console.error('Ошибка создания отчета:', error);
+                alert('Ошибка при создании отчета.');
+            }
+        }
+        
+        async function predictRevenue() {
+            try {
+                let response = await fetch('https://ai.example.com/api/predict-revenue');
+                let data = await response.json();
+                console.log('Прогноз доходов:', data);
+                alert('Прогноз доходов: ' + data.prediction);
+            } catch (error) {
+                console.error('Ошибка прогнозирования:', error);
+                alert('Ошибка при прогнозировании доходов.');
+            }
+        }
+
+        async function analyzeInvestments() {
+            try {
+                let response = await fetch('https://investments.example.com/api/analyze');
+                let data = await response.json();
+                console.log('Инвестиционная аналитика:', data);
+                alert('Инвестиционный анализ завершен!');
+            } catch (error) {
+                console.error('Ошибка анализа инвестиций:', error);
+                alert('Ошибка при анализе инвестиций.');
+            }
+        }
+
+        async function manageAssets() {
+            try {
+                let response = await fetch('https://assets.example.com/api/manage');
+                let data = await response.json();
+                console.log('Управление активами:', data);
+                alert('Управление активами завершено!');
+            } catch (error) {
+                console.error('Ошибка управления активами:', error);
+                alert('Ошибка при управлении активами.');
+            }
+        }
+    </script>
+</body>
+</html>
