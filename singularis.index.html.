@@ -43,132 +43,80 @@
         .button:hover {
             background-color: #00cc99;
         }
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <select id="language" onchange="changeLanguage()">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="zh">中文</option>
+            <option value="ar">العربية</option>
+            <option value="pt">Português</option>
+            <option value="ja">日本語</option>
+            <option value="hi">हिन्दी</option>
+        </select>
+    </div>
     <div class="container">
-        <h1>Singularis - будущее управления бизнесом</h1>
-        <p>Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.</p>
-        <button class="button" onclick="startVoiceRecognition()">Голосовое управление</button>
-        <button class="button" onclick="fetchDataFromAPI()">Получить данные API</button>
-        <button class="button" onclick="fetchCRMData()">Интеграция с CRM</button>
-        <button class="button" onclick="processPayment()">Оплата через API</button>
-        <button class="button" onclick="fetchTransactionAnalytics()">Аналитика транзакций</button>
-        <button class="button" onclick="generateReports()">Создать отчет</button>
-        <button class="button" onclick="predictRevenue()">Прогнозирование доходов</button>
-        <button class="button" onclick="analyzeInvestments()">Инвестиционная аналитика</button>
-        <button class="button" onclick="manageAssets()">Управление активами</button>
+        <h1 id="title">Singularis - будущее управления бизнесом</h1>
+        <p id="description">Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании.</p>
     </div>
 
     <script>
-        function startVoiceRecognition() {
-            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = 'ru-RU';
-            recognition.start();
-            recognition.onresult = function(event) {
-                const command = event.results[0][0].transcript;
-                alert("Распознанная команда: " + command);
+        function changeLanguage() {
+            const lang = document.getElementById("language").value;
+            const translations = {
+                "ru": {
+                    "title": "Singularis - будущее управления бизнесом",
+                    "description": "Искусственный интеллект, который анализирует, предсказывает и управляет стратегией вашей компании."
+                },
+                "en": {
+                    "title": "Singularis - the future of business management",
+                    "description": "Artificial intelligence that analyzes, predicts, and manages your company's strategy."
+                },
+                "es": {
+                    "title": "Singularis - el futuro de la gestión empresarial",
+                    "description": "Inteligencia artificial que analiza, predice y gestiona la estrategia de su empresa."
+                },
+                "de": {
+                    "title": "Singularis - die Zukunft des Geschäftsmanagements",
+                    "description": "Künstliche Intelligenz, die Ihre Unternehmensstrategie analysiert, vorhersagt und verwaltet."
+                },
+                "fr": {
+                    "title": "Singularis - l'avenir de la gestion des affaires",
+                    "description": "L'intelligence artificielle qui analyse, prédit et gère la stratégie de votre entreprise."
+                },
+                "zh": {
+                    "title": "Singularis - 商业管理的未来",
+                    "description": "分析、预测和管理您的公司战略的人工智能。"
+                },
+                "ar": {
+                    "title": "Singularis - مستقبل إدارة الأعمال",
+                    "description": "الذكاء الاصطناعي الذي يحلل ويتنبأ ويدير استراتيجية شركتك."
+                },
+                "pt": {
+                    "title": "Singularis - o futuro da gestão empresarial",
+                    "description": "Inteligência artificial que analisa, prevê e gerencia a estratégia da sua empresa."
+                },
+                "ja": {
+                    "title": "Singularis - ビジネスマネジメントの未来",
+                    "description": "企業の戦略を分析、予測、管理する人工知能。"
+                },
+                "hi": {
+                    "title": "Singularis - व्यवसाय प्रबंधन का भविष्य",
+                    "description": "कृत्रिम बुद्धिमत्ता जो आपकी कंपनी की रणनीति का विश्लेषण, पूर्वानुमान और प्रबंधन करती है।"
+                }
             };
-        }
-
-        async function fetchDataFromAPI() {
-            try {
-                let response = await fetch('https://api.example.com/data');
-                let data = await response.json();
-                console.log('Полученные данные:', data);
-                alert('Данные успешно загружены!');
-            } catch (error) {
-                console.error('Ошибка загрузки данных:', error);
-                alert('Ошибка при загрузке данных API.');
-            }
-        }
-        
-        async function fetchCRMData() {
-            try {
-                let response = await fetch('https://crm.example.com/api/clients');
-                let data = await response.json();
-                console.log('Данные из CRM:', data);
-                alert('Данные CRM загружены!');
-            } catch (error) {
-                console.error('Ошибка загрузки CRM данных:', error);
-                alert('Ошибка при загрузке данных CRM.');
-            }
-        }
-        
-        async function processPayment() {
-            try {
-                let response = await fetch('https://payment.example.com/api/pay', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ amount: 100, currency: 'RUB' })
-                });
-                let data = await response.json();
-                console.log('Оплата обработана:', data);
-                alert('Оплата прошла успешно!');
-            } catch (error) {
-                console.error('Ошибка оплаты:', error);
-                alert('Ошибка при обработке платежа.');
-            }
-        }
-        
-        async function fetchTransactionAnalytics() {
-            try {
-                let response = await fetch('https://analytics.example.com/api/transactions');
-                let data = await response.json();
-                console.log('Аналитика транзакций:', data);
-                alert('Аналитика транзакций загружена!');
-            } catch (error) {
-                console.error('Ошибка загрузки аналитики:', error);
-                alert('Ошибка при загрузке аналитики транзакций.');
-            }
-        }
-        
-        async function generateReports() {
-            try {
-                let response = await fetch('https://reports.example.com/api/generate');
-                let data = await response.json();
-                console.log('Отчет создан:', data);
-                alert('Отчет успешно создан!');
-            } catch (error) {
-                console.error('Ошибка создания отчета:', error);
-                alert('Ошибка при создании отчета.');
-            }
-        }
-        
-        async function predictRevenue() {
-            try {
-                let response = await fetch('https://ai.example.com/api/predict-revenue');
-                let data = await response.json();
-                console.log('Прогноз доходов:', data);
-                alert('Прогноз доходов: ' + data.prediction);
-            } catch (error) {
-                console.error('Ошибка прогнозирования:', error);
-                alert('Ошибка при прогнозировании доходов.');
-            }
-        }
-
-        async function analyzeInvestments() {
-            try {
-                let response = await fetch('https://investments.example.com/api/analyze');
-                let data = await response.json();
-                console.log('Инвестиционная аналитика:', data);
-                alert('Инвестиционный анализ завершен!');
-            } catch (error) {
-                console.error('Ошибка анализа инвестиций:', error);
-                alert('Ошибка при анализе инвестиций.');
-            }
-        }
-
-        async function manageAssets() {
-            try {
-                let response = await fetch('https://assets.example.com/api/manage');
-                let data = await response.json();
-                console.log('Управление активами:', data);
-                alert('Управление активами завершено!');
-            } catch (error) {
-                console.error('Ошибка управления активами:', error);
-                alert('Ошибка при управлении активами.');
-            }
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("description").textContent = translations[lang].description;
         }
     </script>
 </body>
